@@ -249,7 +249,12 @@ int main(int argc, char** argv) {
 
   cv::Mat img = cv::imread(file, -1);
   CHECK(!img.empty()) << "Unable to decode image " << file;
+
+
+  double timer = (double)cv::getTickCount();
   std::vector<Prediction> predictions = classifier.Classify(img);
+  float fps = cv::getTickFrequency() / ((double)cv::getTickCount() - timer);
+  printf("fps: %f\n", fps);
 
   /* Print the top N predictions. */
   for (size_t i = 0; i < predictions.size(); ++i) {

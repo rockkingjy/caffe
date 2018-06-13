@@ -1,5 +1,5 @@
 ---
-name: BAIR/BVLC GoogleNet Model
+name: BVLC GoogleNet Model
 caffemodel: bvlc_googlenet.caffemodel
 caffemodel_url: http://dl.caffe.berkeleyvision.org/bvlc_googlenet.caffemodel
 license: unrestricted
@@ -30,3 +30,15 @@ This model was trained by Sergio Guadarrama @sguada
 ## License
 
 This model is released for unrestricted use.
+
+
+## Train
+```
+ ./build/tools/caffe train --solver=models/bvlc_googlenet/solver.prototxt -gpu 1
+```
+```
+ ./build/tools/caffe train --solver=models/bvlc_googlenet/solver.prototxt --snapshot=models/bvlc_googlenet/bvlc_googlenet_iter_1800000.solverstate -gpu 1
+```
+```
+./build/tools/caffe time --model=models/bvlc_googlenet/train_val.prototxt
+```
